@@ -1,5 +1,25 @@
-.main_div {
+
+.main_label_text {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 150px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.base_div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.field_div {
+    background-color: aqua;
+}
+
+.field_div_child {
     height: 150px;
     width: 150px;
-    background-color: aqua;
+    background-color: blueviolet;
+    display: inline;
+    float: left;
 }

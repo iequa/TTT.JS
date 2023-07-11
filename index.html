@@ -7,14 +7,26 @@
     <meta charset="utf-8"/>
     <title>Tic-tac-toe</title>
 </head>
-<body>
-    <button class="button_start" onclick="onButtonClickEvent()">push me!</button>
-    
-    <div class="main_div" onclick="onClickEvent()">
+<body id="mainField">
+    <button class="button_start" id="start_button">push me!</button>
+    <p class="main_label_text">КРЕСТИКИ-НОЛИКИ</p>
+    <div class="base_div" id="allDivFields">
+        <div class="field_div" id="divs_top">
+            <div class="field_div_child" id="divs_top1"></div>
+            <div class="field_div_child" id="divs_top2"></div>
+            <div class="field_div_child" id="divs_top3"></div>
+        </div>
+        <div class="field_div" id="divs_center">
+            <div class="field_div_child" id="divs_top4"></div>
+            <div class="field_div_child" id="divs_top5"></div>
+            <div class="field_div_child" id="divs_top6"></div>
+        </div>
+        <div class="field_div" id="divs_bottom">
+            <div class="field_div_child" id="divs_top7"></div>
+            <div class="field_div_child" id="divs_top8"></div>
+            <div class="field_div_child" id="divs_top9"></div>
+        </div>
     </div>
-    <div class="main_div" onclick="onClickEvent()"></div>
-    <div class="main_div" onclick="onClickEvent()"></div>
-    <div class="main_div" onclick="onClickEvent()"></div>
     <script src="app.js"></script>
 </body>
 </html>
