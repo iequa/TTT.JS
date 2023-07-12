@@ -1,0 +1,17 @@
+.x {
+    width: 95%;
+    height: 95%;
+    background: url("../images/x.svg"); /* Прописываем путь к картинке и задаем цвет и прозрачность */
+    background-repeat: no-repeat; /* Не повторяем */
+    background-size: cover; /* Размер фона */
+    background-position: center; /* Позиция картинкипо центру */
+}
+
+.o {
+    width: 95%;
+    height: 95%;
+    background: url("../images/o.svg"); /* Прописываем путь к картинке и задаем цвет и прозрачность */
+    background-repeat: no-repeat; /* Не повторяем */
+    background-size: cover; /* Размер фона */
+    background-position: center; /* Позиция картинкипо центру */
+}

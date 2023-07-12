@@ -6,22 +6,28 @@ let fieldsValues = [0,0,0][0,0,0][0,0,0];
 let currentPlayer = false;
 //Тип противника (компьютер, человек)
 let enemyVariant = "Player";
+//Шаблон для отрисовки крестика
+const X_ELEMENT = "<div class=\"x\"></div>";
+const O_ELEMENT = "<div class=\"o\"></div>";
+
 
 const buttonHandler = start_button.onclick = onClickHandler;
 const divHandler = allDivFields.onclick = onClickHandler;
 
 function onClickHandler(event) {
-    console.log("это кликнул " + event.srcElement.id);
-    currentPlayer = true;
+    //Проверяем класс кликнутого объекта, если это <div> то производим отрисовку
+    //TODO ещё проверять по матрице [className.length-1] - индекс текущего элемента
+    if (event.srcElement.className !== "x" && event.srcElement.className !== "o") {
+        let currentDiv = document.getElementById(event.srcElement.id);
+        currentDiv.innerHTML = currentPlayer ? X_ELEMENT : O_ELEMENT;
+        currentPlayer = !currentPlayer;
+    }
 }
 
 function onButtonClickEvent() {
-    //customElements.define("TicTacDiv", TicTacDiv)
     console.log("this is test function! cp = " + currentPlayer);
 };
 
 function onClickEvent() {
-    //customElements.define("TicTacDiv", TicTacDiv)
     console.log("Div click! " + currentPlayer);
 };
-//export {App};
