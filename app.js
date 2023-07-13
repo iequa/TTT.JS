@@ -20,6 +20,9 @@ let fieldsValues =
 //Сторона, которая делает ход в текущий момент (true - X, false - o)
 let currentPlayer = true;
 let someoneWin = false;
+
+let scoreX = 0;
+let scoreO = 0;
 //Тип противника (компьютер, человек)
 let enemyVariant = "Player";
 //Шаблон для отрисовки крестика
@@ -27,30 +30,37 @@ const X_ELEMENT = "<div class=\"x\"></div>";
 //Шаблон для отрисовки нолика
 const O_ELEMENT = "<div class=\"o\"></div>";
 
+const buttonHandler = start_button.onclick = buttonClickHandler;
+const divHandler = allDivFields.onclick = divClickHandler;
 
-const buttonHandler = start_button.onclick = onClickHandler;
-const divHandler = allDivFields.onclick = onClickHandler;
-
-function onClickHandler(event) {
+function divClickHandler(event) {
     //Проверяем класс кликнутого объекта, если это <div> то производим отрисовку
-    //TODO ещё проверять по матрице [className.length-1] - индекс текущего элемента
-    if (event.srcElement.className !== "x" && event.srcElement.className !== "o") {
+    if ( !someoneWin && event.srcElement.className !== "x" && event.srcElement.className !== "o") {
         let currentDiv = document.getElementById(event.srcElement.id);
         currentDiv.innerHTML = currentPlayer ? X_ELEMENT : O_ELEMENT;
         const fieldIndex = parseInt(currentDiv.id.charAt(currentDiv.id.length-1));
         fieldsValues[fieldIndex-1] = currentPlayer ? 1 : 2;
         someoneWin = checkFieldsValues(fieldsValues, currentPlayer);
+        if (someoneWin) {
+            //Нагло лезем в главный див отрисовать победное окно
+            let baseDiv = document.getElementById("board");
+            const winner = currentPlayer ? "Крестик" : "Нолик";
+            currentPlayer ? scoreX++ : scoreO++;
+            baseDiv.innerHTML = `\"Крестики\"|${scoreX}:${scoreO}|\"Нолики\"` + `<p class="win_text">${winner} победил! </p>`;
+        }
         currentPlayer = !currentPlayer;
-        console.log(someoneWin);
     }
 }
 
-function onButtonClickEvent() {
-    console.log("this is test function! cp = " + currentPlayer);
-};
-
-function onClickEvent() {
-    console.log("Div click! " + currentPlayer);
+function buttonClickHandler() {
+    fieldsValues = [0,0,0,0,0,0,0,0,0];
+    currentPlayer = true;
+    for(let i = 1; i<=fieldsValues.length;i++) {
+        const elem = document.getElementById("divs_top"+i);
+        elem.innerHTML = "";
+    }
+    document.getElementById("board").innerHTML = `\"Крестики\"|${scoreX}:${scoreO}|\"Нолики\"`;
+    someoneWin = false;
 };
 
 function checkFieldsValues(fieldsValues, lastPlayer) {
