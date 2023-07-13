@@ -8,7 +8,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "C:\\Users\\Artyom\\Desktop\\laby univer\\3 krs\\6 sem\\praktika_2023\\TTT.JS\\index.html",
+            "url": "${workspaceFolder}/index.html",
             "webRoot": "${workspaceFolder}"
         }
     ]
