@@ -6,7 +6,7 @@
     <link href="style/objects.css" rel="stylesheet">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <meta charset="utf-8"/>
-    <title>Tic-tac-toe</title>
+    <title>Крестики-нолики</title>
 </head>
 <body id="mainField">
     <p class="main_label_text" id="info_text">КРЕСТИКИ-НОЛИКИ</p>
@@ -29,6 +29,21 @@
     </div>
     <div class="winboard" id="board">"Крестики"|0:0|"Нолики"</div>
     <button class="button_start" id="start_button">Начать заново</button>
+
+    <fieldset class="gamemode_selector" id="gamemode_section">
+        <legend class="gamemode_selector_legend">Выберите тип игры:</legend>
+    
+        <div>
+          <input type="radio" id="pvp" name="drone" value="true"
+                 checked>
+          <label for="pvp">Поочерёдный ход</label>
+        </div>
+    
+        <div>
+          <input type="radio" id="pve" name="drone" value="false">
+          <label for="pve">Игра против компьютера</label>
+        </div>
+    </fieldset>
     <script src="app.js"></script>
 </body>
 </html>
