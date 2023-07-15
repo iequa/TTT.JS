@@ -116,7 +116,7 @@ function selectOrComputePlaceId(pvp, mainPlayerTurn) {
 //Рандомные ходы для компьютера
 function computeIdAndPlace(fieldsValues) {
     let place = 4;
-    if (fieldsValues[place] !== 0) {
+    while (fieldsValues[place] !== 0) {
         place = getRandomInt(8);
     }
     return `divs_top${place+1}`;
